@@ -1,4 +1,4 @@
-import { CounterShoppingCart } from "../helpers/selectores";
+import { header } from "../helpers/selectores";
 import { Product } from "../models";
 
 class ShoppingCart {
@@ -6,13 +6,14 @@ class ShoppingCart {
     this.shoppingProducts = [];
     this.keyStorage = "shopping";
     this._initShoppingCart();
+    this.counterShoppingCartSelector = header.querySelector(
+      "#count-shopping span.header__navigation-count"
+    );
   }
 
   _initShoppingCart() {
     this.shoppingProducts =
       JSON.parse(localStorage.getItem(this.keyStorage)) ?? [];
-
-    this.counterShopping();
   }
 
   addProduct(product) {
@@ -27,7 +28,8 @@ class ShoppingCart {
   }
 
   counterShopping() {
-    CounterShoppingCart.textContent = this.shoppingProducts?.length ?? 0;
+    this.counterShoppingCartSelector.textContent =
+      this.shoppingProducts?.length ?? 0;
   }
 }
 

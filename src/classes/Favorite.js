@@ -1,4 +1,4 @@
-import { CounterFavorite } from "../helpers/selectores";
+import { header } from "../helpers/selectores";
 import { Product } from "../models";
 
 class Favorite {
@@ -6,12 +6,14 @@ class Favorite {
     this.favoriteProducts = [];
     this.keyStorage = "favorite";
     this._initFavorite();
+    this.counterFavoriteSelector = header.querySelector(
+      "#count-favorite span.header__navigation-count"
+    );
   }
 
   _initFavorite() {
     this.favoriteProducts =
       JSON.parse(localStorage.getItem(this.keyStorage)) ?? [];
-    this.counterFavorite();
   }
 
   addFavorite(product) {
@@ -27,7 +29,7 @@ class Favorite {
         return;
       }
 
-      this.deleteFavorite(product.id)
+      this.deleteFavorite(product.id);
     }
   }
 
@@ -50,7 +52,8 @@ class Favorite {
   }
 
   counterFavorite() {
-    CounterFavorite.textContent = this.favoriteProducts?.length ?? 0;
+    this.counterFavoriteSelector.textContent =
+      this.favoriteProducts?.length ?? 0;
   }
 }
 

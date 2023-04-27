@@ -1,4 +1,16 @@
 :root {
+  --font-primary: "Roboto", sans-serif;
+
+  --bg-color-primary: rgb(79 73 209);
+  --bg-color-white: #ffffff;
+  --bg-color-gray: rgba(204, 204, 204, 0.842);
+
+  --text-color-white: #ffffff;
+  --text-color-blue: rgb(79 73 209);
+  --text-color-variante: rgb(205 156 54);
+
+  --border-color-primary: rgba(204, 204, 204, 0.842);
+  --border-color-secundary: rgb(79 73 209);
 }
 
 html {
@@ -19,7 +31,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-primary);
 }
 
 img {
@@ -51,8 +63,8 @@ ul {
 [class*="__button"] {
   width: 100%;
   padding: 0.5rem;
-  background-color: rgb(79 73 209);
-  color: white;
+  background-color: var(--bg-color-primary);
+  color: var(--text-color-white);
   font-weight: bold;
   border: none;
   border-radius: 0.5rem;
@@ -74,8 +86,8 @@ ul {
 .header {
   width: 100%;
   padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(204, 204, 204, 0.842);
-  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color-primary);
+  background-color: var(--bg-color-white);
   position: fixed;
   z-index: 1;
 }
@@ -87,7 +99,7 @@ ul {
 }
 
 .header__logo-container {
-  color: rgb(79 73 209);
+  color: var(--text-color-blue);
   cursor: pointer;
 }
 
@@ -108,12 +120,12 @@ ul {
   position: absolute;
   right: -8px;
   top: -0.5rem;
-  background-color: rgb(79 73 209);
+  background-color: var(--bg-color-primary);
   border-radius: 10rem;
   width: 2rem;
   height: 2rem;
   text-align: center;
-  color: #ffffff;
+  color: var(--text-color-white);
 }
 
 .header__icon {
@@ -151,20 +163,20 @@ ul {
   text-transform: capitalize;
   gap: 1rem;
   cursor: pointer;
-  border: 1px solid rgba(204, 204, 204, 0.842);
+  border: 1px solid var(--border-color-primary);
   border-radius: 1rem;
   transition-property: border, color;
   transition-duration: 0.3s;
 }
 
 .categories__grid-item--active {
-  border: 1px solid rgb(79 73 209);
-  color: rgb(79 73 209);
+  border: 1px solid var(--border-color-secundary);
+  color: var(--text-color-blue);
 }
 
 .categories__grid-item:hover {
-  border: 1px solid rgb(79 73 209);
-  color: rgb(79 73 209);
+  border: 1px solid var(--border-color-secundary);
+  color: var(--text-color-blue);
 }
 
 .productos {
@@ -218,7 +230,7 @@ ul {
   font-weight: 800;
   font-size: 2rem;
   margin: 1rem 0;
-  color: rgb(205 156 54);
+  color: var(--text-color-variante);
 }
 
 /* DETAIL PRODUCT */
@@ -284,7 +296,7 @@ ul {
   font-size: 5rem;
   font-weight: bold;
   margin: 0 auto;
-  color: rgb(79 73 209);
+  color: var(--text-color-blue);
 }
 @media (min-width: 768px) {
   .product-detail__info-price {
@@ -320,24 +332,24 @@ ul {
   align-items: center;
   gap: 1rem;
   cursor: pointer;
-  border: 1px solid rgba(204, 204, 204, 0.842);
+  border: 1px solid var(--border-color-primary);
   border-radius: 1rem;
 }
 
 .product-detail__actions-item:hover {
-  border: 1px solid rgb(79 73 209);
-  color: rgb(79 73 209);
+  border: 1px solid var(--border-color-secundary);
+  color: var(--text-color-blue);
 }
 
 .product-detail__actions-item--active {
-  border: 1px solid rgb(79 73 209);
-  color: #ffffff;
-  background-color: rgb(79 73 209);
+  border: 1px solid var(--border-color-secundary);
+  color: var(--text-color-white);
+  background-color: var(--bg-color-primary);
 }
 
 .product-detail__actions-item--active:hover {
-  border: 1px solid rgb(79 73 209);
-  color: #ffffff;
+  border: 1px solid var(--border-color-secundary);
+  color: var(--text-color-white);
 }
 
 .product-detail__actions-text {
@@ -363,6 +375,85 @@ ul {
   font-weight: 300;
 }
 
+/*FORMULARIO */
+.formulario {
+  max-width: 55rem;
+  width: 90%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.formulario__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario__icon {
+  margin: 0 auto;
+}
+
+.formulario__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-color-blue);
+}
+
+.formulario__label {
+  font-weight: 700;
+}
+
+.formulario__input {
+  all: unset;
+  padding: 1rem;
+  border: 1px solid var(--border-color-primary);
+  border-radius: 1rem;
+}
+
+.formulario__input:focus {
+  border: 1px solid var(--border-color-secundary);
+}
+
+.formulario__validators {
+  padding: 0 2rem;
+}
+
+.formulario__validator {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.formulario__validator-icon {
+  width: 3rem;
+}
+
+.formulario__validator-text {
+  color: #ff2825;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.formulario__input-submit {
+  background-color: var(--bg-color-primary);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--text-color-white);
+  cursor: pointer;
+}
+
+.formulario__input-submit:disabled {
+  background-color: var(--bg-color-gray);
+  color: var(--text-color-white);
+}
+
 /* ANIMATIONS */
 .sk-chase {
   width: 40px;
@@ -386,7 +477,7 @@ ul {
   display: block;
   width: 25%;
   height: 25%;
-  background-color: rgb(79 73 209);
+  background-color: var(--bg-color-primary);
   border-radius: 100%;
   animation: sk-chase-dot-before 2s infinite ease-in-out both;
 }

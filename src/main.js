@@ -1,11 +1,7 @@
 import "../style.css";
-import { showAllProducts, showDetailProduct } from "./helpers/funciones";
-import { fakeStoreLogo } from "./helpers/selectores";
+import { showAllProducts, showAuthLogin, showDetailProduct } from "./helpers/funciones";
 
-fakeStoreLogo.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "/index";
-});
+
 
 window.onload = async function () {
   const endPoint = window.location.pathname;
@@ -15,6 +11,10 @@ window.onload = async function () {
   switch (path) {
     case "/":
     case "/index":
+      showAuthLogin();
+      break;
+    
+    case '/home':
       showAllProducts();
       break;
 

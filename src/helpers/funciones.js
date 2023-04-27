@@ -6,9 +6,10 @@ import { Product } from "../models";
 import { AppContainer } from "./selectores";
 
 const fakestoreapi = new FakeStoreAPI();
+const ui = new UI();
 const shoppingCart = new ShoppingCart();
 const favorite = new Favorite();
-const ui = new UI();
+
 
 const containerCategories = document.createElement("DIV");
 const containerProducts = document.createElement("DIV");
@@ -18,6 +19,17 @@ export const CATEGORY_CONST = Object.freeze({
   OTHER: "other"
 });
 
+export const inputType = Object.freeze({
+  TEXT: "text",
+  PASSWORD: "password",
+  SUBMIT: "submit"
+});
+
+const autLogin = {
+  username: "",
+  password: ""
+};
+
 export async function showAllProducts() {
   ui.showSpinner(AppContainer);
   const [products, categories] = await Promise.all([
@@ -25,7 +37,8 @@ export async function showAllProducts() {
     fakestoreapi.getAllCategories()
   ]);
   ui.limpiarHTML(AppContainer);
-
+  shoppingCart.counterShopping();
+  favorite.counterFavorite();
   ui.showSectionTitle(containerCategories, "Categorias.");
   ui.showCategories(containerCategories, categories);
   AppContainer.appendChild(containerCategories);
@@ -101,4 +114,71 @@ export function switchStyleFavorite(containerHtml = undefined, id) {
       ".product-detail__actions-text"
     ).textContent = "Agregar a Favorito";
   }
+}
+
+export function showAuthLogin() {
+  if (fakestoreapi.verifyToken()) {
+    window.location.href = "/home";
+    return;
+  }
+
+  ui.showFormulario(AppContainer);
+  AppContainer.querySelector('input[type="submit"]').disabled = true;
+
+  AppContainer.querySelector("#formulario").addEventListener(
+    "submit",
+    autenticarUser
+  );
+  AppContainer.querySelector("#username").addEventListener(
+    "input",
+    initObjectAuth
+  );
+  AppContainer.querySelector("#password").addEventListener(
+    "input",
+    initObjectAuth
+  );
+}
+
+async function autenticarUser(evt) {
+  evt.preventDefault();
+
+  const validUser = await fakestoreapi.verifyUserAutentication(autLogin);
+
+  if (!validUser) {
+    console.log("Usuario no Valido Intente Nuevamente");
+  }
+
+  setTimeout(() => {
+    window.location.href = "/home";
+  }, 3000);
+}
+
+function initObjectAuth(e) {
+  autLogin[e.target.name] = e.target.value.trim();
+
+  validatorsInputs(e.target.name, e.target.type, e.target.id);
+
+  AppContainer.querySelector('input[type="submit"]').disabled =
+    validateObjAuth(autLogin);
+}
+
+function validatorsInputs(nameInput, typeInput, idInputValidator) {
+  const validatorsContainer = AppContainer.querySelector(
+    `#validator-${idInputValidator}`
+  );
+
+  ui.limpiarHTML(validatorsContainer);
+
+  if (validatisEmpity(autLogin[nameInput])) {
+    ui.showErrorValidator(validatorsContainer, "Campo esta vacio");
+    return;
+  }
+}
+
+function validatisEmpity(valueInput) {
+  return valueInput === "";
+}
+
+function validateObjAuth(objAuth) {
+  return Object.values(objAuth).some((auth) => auth === "");
 }
