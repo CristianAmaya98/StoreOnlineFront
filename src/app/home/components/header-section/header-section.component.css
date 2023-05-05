@@ -1,0 +1,9 @@
+.header {
+}
+
+.header__title {
+  font-size: 4rem;
+  font-weight: 700;
+  padding-bottom: 2rem;
+}
+

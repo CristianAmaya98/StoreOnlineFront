@@ -1,0 +1,27 @@
+<form [formGroup]="formularioLogin" class="formulario" (ngSubmit)="verificarCredentials()">
+
+  <div class="formulario__campo">
+    <label for="username" class="">UserName:</label>
+    <input type="text" id="username" class="formulario__input" placeholder="Ingrese su UserName"
+      formControlName="username">
+    <ul class="formulario__validators" *ngIf="validateCampoForm('username')">
+      <app-formulario-error-input *ngFor="let error of showErrorsFormCampo('username')"
+        [title]="error"></app-formulario-error-input>
+    </ul>
+  </div>
+
+  <div class="formulario__campo">
+    <label for="password" class="">Password:</label>
+    <input type="password" id="password" class="formulario__input" placeholder="Ingrese su password"
+      formControlName="password">
+    <ul class="formulario__validators" *ngIf="validateCampoForm('password')">
+      <app-formulario-error-input *ngFor="let error of showErrorsFormCampo('password')"
+        [title]="error"></app-formulario-error-input>
+    </ul>
+  </div>
+
+  <div class="formulario__campo">
+    <input type="submit" class="formulario__input formulario__input-submit" value="Ingresar"
+      [disabled]="formularioLogin.invalid">
+  </div>
+</form>

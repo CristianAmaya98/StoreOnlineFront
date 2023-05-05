@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --font-primary: "Roboto", sans-serif;
+
+  --bg-color-primary: rgb(79 73 209);
+  --bg-color-white: #ffffff;
+  --bg-color-gray: rgba(204, 204, 204, 0.842);
+
+  --text-color-white: #ffffff;
+  --text-color-blue: rgb(79 73 209);
+  --text-color-variante: rgb(205 156 54);
+
+  --border-color-primary: rgba(204, 204, 204, 0.842);
+  --border-color-secundary: rgb(79 73 209);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-primary);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+[class$="__container"] {
+  max-width: 120rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+[class*="__button"] {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--bg-color-primary);
+  color: var(--text-color-white);
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
