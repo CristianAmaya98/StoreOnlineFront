@@ -29,3 +29,7 @@
   font-weight: 800;
   color: var(--text-color-blue);
 }
+
+.login__form-notification {
+  width: 100%;
+}

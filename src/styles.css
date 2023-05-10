@@ -12,6 +12,12 @@
 
   --border-color-primary: rgba(204, 204, 204, 0.842);
   --border-color-secundary: rgb(79 73 209);
+
+   --bg-color-red-light: #f1aeb5;
+   --border-color-red: #dc3545;
+
+   --bg-color-green-light: #a3cfbb;
+   --border-color-green: #0a3622;
 }
 
 html {

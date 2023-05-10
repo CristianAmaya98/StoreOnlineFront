@@ -13,8 +13,8 @@ export class FormularioLoginComponent implements OnInit {
   @Output() onVerificarSesion: EventEmitter<CredentialUser> = new EventEmitter<CredentialUser>();
 
   formularioLogin: FormGroup = this.formBuider.group({
-    username: ['', [Validators.required, Validators.minLength(4)]],
-    password: ['', [Validators.required, Validators.minLength(4)]]
+    username: ['mor_2314', [Validators.required, Validators.minLength(4)]],
+    password: ['83r5^_', [Validators.required, Validators.minLength(4)]]
   })
 
   constructor(private formBuider: FormBuilder) { }

@@ -1,30 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CredentialUser } from '../../interfaces/credential.interface';
+import { Notification } from '../../interfaces/Notification.interface';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   showSpinner: boolean = false;
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-    // this.authService.verifyCredential({ username: 'mor_2314', password: '83r5^_'})
+  _notificationObj: Notification = {
+    title: '',
+    message: '',
+    typeNotification: 'error',
+    visible: false
   }
 
 
-  verificationUser(userCredencial: CredentialUser) {
-    console.log(userCredencial);
-    this.showSpinner = true;
-    setTimeout(() => {
-      console.log('Timeout');
+  public get notification(): Notification {
+    return this._notificationObj
+  }
 
-      this.showSpinner = false;
-    }, 3000);
+
+  constructor(private authService: AuthService, private router: Router) { }
+
+
+  verificationUser(userCredencial: CredentialUser) {
+    this.showSpinner = true;
+    this.authService.verifyCredential(userCredencial).subscribe(validCredential => {
+
+      setTimeout(() => {
+        this.showSpinner = false;
+
+        this._notificationObj.title = `Verificación ${(validCredential) ? 'Existosa' : 'Fallida'}`;
+        this._notificationObj.message = `Verificación de usuario ${(validCredential) ? 'realizada correctamente' : 'fallo Intente Nuevamente'}`;
+        this._notificationObj.typeNotification = (validCredential) ? 'sucess' : 'error';
+        this._notificationObj.visible = true;
+
+        setTimeout(() => {
+          this._notificationObj.title = '';
+          this._notificationObj.message = '';
+          this._notificationObj.typeNotification = 'error';
+          this._notificationObj.visible = false;
+
+          this.router.navigateByUrl('/home')
+        }, 3000);
+
+
+      }, 3000);
+
+    })
+
   }
 }

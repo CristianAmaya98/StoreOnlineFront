@@ -1,0 +1,7 @@
+<div class="notification" [ngClass]="{
+  'notification--success': typeNotification === notification.SUCESS,
+  'notification--failed': typeNotification === notification.ERROR
+}">
+  <span class="notification__title">{{title | titlecase}}</span>
+  <p class="notification__message">{{message}}</p>
+</div>

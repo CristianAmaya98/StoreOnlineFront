@@ -2,6 +2,11 @@
 
   <div class="login__form-container">
 
+    <div *ngIf="notification.visible" class="login__form-campo">
+      <app-notification class="login__form-notification" [message]="notification.message" [title]="notification.title"
+        [typeNotification]="notification.typeNotification"></app-notification>
+    </div>
+
     <div class="login__form-campo login__form-header">
       <svg class="login__form-icon" xmlns="http://www.w3.org/2000/svg"
         class="icon icon-tabler icon-tabler-building-store" width="48" height="48" viewBox="0 0 24 24"
@@ -23,6 +28,3 @@
     </div>
   </div>
 </div>
-
-
-
