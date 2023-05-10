@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CredentialUser } from '../../interfaces/credential.interface';
-import { Notification } from '../../interfaces/Notification.interface';
 import { Router } from '@angular/router';
+import { Notification } from '../../interfaces/notification.interface';
 
 
 @Component({

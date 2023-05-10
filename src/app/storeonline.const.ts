@@ -8,3 +8,10 @@ export const notificationType = Object.freeze({
   ERROR: 'error',
   SUCESS: 'sucess'
 })
+
+
+export const buttonActions = Object.freeze({
+  COMPRAR: "comprar",
+  AGREGAR: "agregar",
+  FAVORITO: "favorito"
+});
