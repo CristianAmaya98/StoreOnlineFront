@@ -11,6 +11,7 @@ export class FakeStoreService {
 
   private _categories: string[] = [];
   private _products: any[] = [];
+  private _product: any;
 
   public get categories(): string[] {
     return [...this._categories]
@@ -21,7 +22,9 @@ export class FakeStoreService {
     return [...this._products];
   }
 
-
+  public get product(): any {
+    return { ...this._product };
+  }
 
   constructor(private _http: HttpClient) { }
 
@@ -41,5 +44,11 @@ export class FakeStoreService {
     this._http.get(`${this.url}/products/category/${category}`).subscribe(response => {
       this._products = response as any[]
     })
+  }
+
+  getDetalleProduct(id: number) {
+    this._http.get(`${this.url}/products/${id}`).subscribe(response => {
+      this._product = response;
+    });
   }
 }

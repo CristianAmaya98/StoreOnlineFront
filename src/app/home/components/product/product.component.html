@@ -1,5 +1,6 @@
 <div class="product__container-image">
-  <img class="product__imagen" [src]="product.image" [alt]="'product-'+product.id">
+  <img class="product__imagen" [src]="product.image" [alt]="'product-'+product.id"
+    [routerLink]="['/home/detail', product.id]">
 </div>
 <div class="product__info">
   <h3 class="product__title">{{product.title | titlecase}}</h3>

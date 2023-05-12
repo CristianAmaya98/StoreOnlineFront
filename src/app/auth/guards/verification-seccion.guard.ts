@@ -11,8 +11,6 @@ export class VerificationSeccionGuard implements CanActivate, CanLoad {
   constructor(private router: Router, private tokenService: TokenService) { }
 
   canActivate(): Observable<boolean> | boolean {
-
-    console.log('canActivate');
     const validSection = this.tokenService.validateToken()
 
     if (!validSection) {
@@ -22,7 +20,6 @@ export class VerificationSeccionGuard implements CanActivate, CanLoad {
     return true;
   }
   canLoad(): Observable<boolean> | boolean {
-    console.log('canLoad');
     const validSection = this.tokenService.validateToken()
 
     if (!validSection) {

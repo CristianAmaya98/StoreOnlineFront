@@ -8,8 +8,7 @@ import { HeaderSectionComponent } from './components/header-section/header-secti
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { ButtonsActionsComponent } from './components/buttons-actions/buttons-actions.component';
 
 
 @NgModule({
@@ -19,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     CategoriesComponent,
     HeaderSectionComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    ButtonsActionsComponent
   ],
   imports: [
     CommonModule,

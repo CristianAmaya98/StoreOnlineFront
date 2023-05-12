@@ -6,9 +6,9 @@ import { TokenService } from 'src/app/shared/services/token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class VerificationTokenGuard implements  CanLoad {
+export class VerificationTokenGuard implements CanLoad {
 
-  constructor(private tokenService: TokenService, private router: Router) {}
+  constructor(private tokenService: TokenService, private router: Router) { }
 
   canLoad(): Observable<boolean> | boolean {
     return this.routingHomeValidateToken();
@@ -17,7 +17,6 @@ export class VerificationTokenGuard implements  CanLoad {
 
   routingHomeValidateToken() {
     const validToken = this.tokenService.validateToken()
-    console.log({ validToken });
     if (validToken) {
       this.router.navigateByUrl('/home')
       return false;
