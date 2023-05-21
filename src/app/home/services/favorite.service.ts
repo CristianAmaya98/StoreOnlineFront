@@ -5,5 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class FavoriteService {
 
-  constructor() { }
+  private favoriteProducts: any[] = [];
+  private keyStorage: string = 'favorite';
+
+
+  constructor() {
+    this._initFavoriteProducts();
+  }
+
+  _initFavoriteProducts() {
+    this.favoriteProducts = JSON.parse(localStorage.getItem(this.keyStorage)!) ?? []
+  }
+
+
+  addProductFavorite(product: any) {
+    
+  }
 }

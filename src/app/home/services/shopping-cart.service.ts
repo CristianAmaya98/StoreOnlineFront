@@ -24,12 +24,28 @@ export class ShoppingCartService {
   }
 
   addProduct(product: any) {
-    this.shoppingProducts = [product, ...this.shoppingProducts];
+    if (this.verificateProduct(product.id)) {
+      this.shoppingProducts = this.updateAmountProduct(product);
+    } else {
+      this.shoppingProducts = [product, ...this.shoppingProducts];
+    }
+
     localStorage.setItem(
       this.keyStorage,
       JSON.stringify(this.shoppingProducts)
     );
   }
 
+  updateAmountProduct(product: any) {
+    return this.shoppingProducts.map(productShopping => {
+      if (productShopping.id === product.id) {
+        productShopping.cantidad += 1;
+      }
+      return productShopping;
+    });
+  }
 
+  verificateProduct(id: number) {
+    return this.shoppingProducts.some(productShopping => productShopping.id === id)
+  }
 }
