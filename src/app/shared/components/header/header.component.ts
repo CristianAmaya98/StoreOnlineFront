@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoriteService } from 'src/app/home/services/favorite.service';
 import { ShoppingCartService } from 'src/app/home/services/shopping-cart.service';
 
 @Component({
@@ -13,7 +14,13 @@ export class HeaderComponent implements OnInit {
     return this.shoppingCartService.counterShopping;
   }
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+
+  public get counterFavorite(): number {
+    return this.favoriteService.counterFavorite;
+  }
+
+
+  constructor(private shoppingCartService: ShoppingCartService, private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
   }
