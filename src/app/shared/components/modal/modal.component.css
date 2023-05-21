@@ -1,0 +1,164 @@
+.bg-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.788);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.bg-modal--animation {
+}
+
+.modal {
+  margin-top: 10rem;
+  width: 70rem;
+  min-height: 35rem;
+  height: auto;
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal--animation {
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.modal--animation-active {
+  animation-name: animationModalShow;
+}
+
+.modal--animation-inactive {
+  animation-name: animationModalHidden;
+}
+
+@keyframes animationModalShow {
+  from {
+    transform: translateY(-100rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animationModalHidden {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100rem);
+  }
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  background-color: rgb(212, 212, 212);
+}
+
+.modal__title {
+  font-weight: 900;
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+
+.modal__icon-close {
+  cursor: pointer;
+}
+
+.modal__body {
+  padding: 3rem 0;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+.modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal__item {
+  display: grid;
+  grid-template-columns: auto 3fr auto;
+  gap: 2rem;
+  padding: 0 3rem;
+}
+
+.modal__item-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__img {
+  width: 6rem;
+}
+
+.modal__item-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modal__item-title {
+  font-weight: 700;
+}
+
+.modal__item-counter {
+  font-weight: 500;
+}
+
+.modal__item-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.modal__text-price {
+  font-weight: 900;
+}
+
+.modal__footer {
+  background-color: rgb(212, 212, 212);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+}
+
+.modal__footer-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__footer-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.modal__footer-price {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.modal__button {
+  width: auto;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  background-color: black;
+}

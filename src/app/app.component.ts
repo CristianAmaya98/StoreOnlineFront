@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'StoreOnlineFront';
+  modalShow: boolean = true;
+
+  eventHeaderIcon(event: string) {
+    this.modalShow = !this.modalShow;
+    console.log({ event });
+  }
+
+  closeModal() {
+    this.modalShow = !this.modalShow;
+  }
 }

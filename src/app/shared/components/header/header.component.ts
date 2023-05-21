@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FavoriteService } from 'src/app/home/services/favorite.service';
 import { ShoppingCartService } from 'src/app/home/services/shopping-cart.service';
 
@@ -9,6 +9,7 @@ import { ShoppingCartService } from 'src/app/home/services/shopping-cart.service
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() onEventButton: EventEmitter<string> = new EventEmitter<string>();
 
   public get counterShopping(): number {
     return this.shoppingCartService.counterShopping;
@@ -25,4 +26,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  iconEvent(atributeEvent: string) {
+    this.onEventButton.emit(atributeEvent)
+  }
 }

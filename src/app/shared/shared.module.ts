@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { RouterModule } from '@angular/router';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent,
     AnimationComponent,
-    NotificationComponent
+    NotificationComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     HeaderComponent,
     AnimationComponent,
-    NotificationComponent
+    NotificationComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }

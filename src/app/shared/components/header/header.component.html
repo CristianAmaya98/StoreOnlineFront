@@ -4,7 +4,7 @@
       <h1 class="header__logo" routerLink="/home">StoreOnline</h1>
     </div>
     <ul class="header__navigation">
-      <li class="header__navigation-item">
+      <li class="header__navigation-item" (click)="iconEvent('shopping')">
 
         <svg class="header__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
           stroke="currentColor" width="30" height="30" stroke="#ffffff" class="w-6 h-6">
@@ -16,7 +16,7 @@
 
       </li>
 
-      <li class="header__navigation-item">
+      <li class="header__navigation-item" (click)="iconEvent('favorite')">
         <svg class="header__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
           stroke="currentColor" width="30" height="30" stroke="#ffffff" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round"
