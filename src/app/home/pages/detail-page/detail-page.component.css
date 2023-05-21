@@ -101,3 +101,9 @@
   font-size: 2rem;
   font-weight: 300;
 }
+
+
+.product-category__items {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+}

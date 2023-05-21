@@ -51,4 +51,17 @@ export class FakeStoreService {
       this._product = response;
     });
   }
+
+  getOtherProductToCategory(category: string, idProduct: number) {
+    this._http.get(`${this.url}/products/category/${category}`).subscribe(response => {
+      const productsOther = response as any[]
+      this._products = productsOther.filter(product => product.id !== idProduct)
+    })
+  }
+
+  resetFakeStore() {
+    this._categories = [];
+    this._products = [];
+    this._product = [];
+  }
 }

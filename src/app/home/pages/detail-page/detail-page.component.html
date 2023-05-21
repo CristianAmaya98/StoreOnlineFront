@@ -14,6 +14,7 @@
       <ng-container *ngTemplateOutlet="description"></ng-container>
     </div>
   </div>
+  <ng-container *ngTemplateOutlet="otherProducts"></ng-container>
 </ng-template>
 
 
@@ -41,4 +42,15 @@
     <h2 class="product-detail__description-title">Descripcion.</h2>
     <p class="product-detail__description-text">{{product.description}}</p>
   </div>
+</ng-template>
+
+
+<ng-template #otherProducts>
+  <app-header-section [titleHeader]="'Otros Productos.'"></app-header-section>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corporis deserunt eum accusantium fuga sit
+    perspiciatis consequatur debitis voluptas nulla voluptatum fugiat, ipsum soluta id veniam cumque eos consectetur
+    cupiditate?
+  </p>
+  <app-products class="product-category__items" [products]="productToCategory" [buttonsVisible]="false"></app-products>
 </ng-template>

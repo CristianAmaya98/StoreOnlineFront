@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class ProductsComponent  {
 
   @Input() products: any[] = [];
+  @Input() buttonsVisible: boolean = true;
 
 }
