@@ -5,5 +5,5 @@
 <div class="product__info">
   <h3 class="product__title">{{product.title | titlecase}}</h3>
   <span class="product__price">$ {{product.price | number}}</span>
-  <button class="product__button product__button-add">AGREGAR</button>
+  <button class="product__button product__button-add" (click)="addProductShopping(product)">AGREGAR</button>
 </div>
