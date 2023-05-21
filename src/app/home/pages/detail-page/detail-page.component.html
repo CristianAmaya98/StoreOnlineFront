@@ -1,0 +1,45 @@
+<div class="detail">
+  <app-header-section [titleHeader]="'Detalles.'"></app-header-section>
+
+  <app-animation *ngIf="animation; else detailProduct" [message]="'Cargando Detalle Producto ...'"></app-animation>
+
+</div>
+
+<ng-template #detailProduct>
+  <div class="product-detail">
+    <ng-container *ngTemplateOutlet="imageContainer"></ng-container>
+
+    <div class="product-detail__info">
+      <ng-container *ngTemplateOutlet="headerInfo"></ng-container>
+      <app-buttons-actions></app-buttons-actions>
+      <ng-container *ngTemplateOutlet="description"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+
+
+<ng-template #imageContainer>
+  <div class="product-detail__container-imagen">
+    <img [src]="product.image" alt="producto" class="product-detail__imagen">
+  </div>
+</ng-template>
+
+
+
+
+<ng-template #headerInfo>
+  <h2 class="product-detail__info-title">{{product.title}}</h2>
+  <p class="product-detail__info-price">$ {{product.price}}</p>
+  <div class="product-detail__info-ranking">Calificacion: {{product.rating.rate}}</div>
+  <div class="product-detail__info-reviews">Reseñas: {{product.rating.count}}</div>
+</ng-template>
+
+
+
+<ng-template #description>
+  <div class="product-detail__description">
+    <h2 class="product-detail__description-title">Descripcion.</h2>
+    <p class="product-detail__description-text">{{product.description}}</p>
+  </div>
+</ng-template>

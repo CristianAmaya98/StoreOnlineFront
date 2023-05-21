@@ -1,0 +1,30 @@
+<div class="login">
+
+  <div class="login__form-container">
+
+    <div *ngIf="notification.visible" class="login__form-campo">
+      <app-notification class="login__form-notification" [message]="notification.message" [title]="notification.title"
+        [typeNotification]="notification.typeNotification"></app-notification>
+    </div>
+
+    <div class="login__form-campo login__form-header">
+      <svg class="login__form-icon" xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-building-store" width="48" height="48" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="#4F49D1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <line x1="3" y1="21" x2="21" y2="21" />
+        <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+        <line x1="5" y1="21" x2="5" y2="10.85" />
+        <line x1="19" y1="21" x2="19" y2="10.85" />
+        <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+      </svg>
+      <span class="login__form-title">Store Online</span>
+    </div>
+
+    <app-formulario-login (onVerificarSesion)="verificationUser($event)"></app-formulario-login>
+
+    <div class="login__form-campo">
+      <app-animation *ngIf="showSpinner" [message]="'Verificando Credenciales...'"></app-animation>
+    </div>
+  </div>
+</div>

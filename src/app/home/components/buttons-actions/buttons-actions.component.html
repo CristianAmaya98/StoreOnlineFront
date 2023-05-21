@@ -1,0 +1,43 @@
+<ul class="product-detail__actions">
+
+  <li *ngFor="let button of buttons" class="product-detail__actions-item" [ngSwitch]="button.icon">
+    <p class="product-detail__actions-text">{{button.title}}</p>
+
+    <div *ngSwitchCase="'comprar'">
+      <ng-container *ngTemplateOutlet="comprar"></ng-container>
+    </div>
+    <div *ngSwitchCase="'carrito'">
+      <ng-container *ngTemplateOutlet="carrito"></ng-container>
+    </div>
+    <div *ngSwitchCase="'favorito'">
+      <ng-container *ngTemplateOutlet="favorito"></ng-container>
+    </div>
+  </li>
+
+</ul>
+
+<ng-template class="product-detail__actions-icon" #comprar>
+  <svg class="product-detail__actions-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+    width="30" height="30" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+  </svg>
+</ng-template>
+
+
+<ng-template #carrito>
+  <svg class="product-detail__actions-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+    stroke-width="1.5" width="30" height="30" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+  </svg>
+
+</ng-template>
+
+<ng-template #favorito>
+  <svg class="product-detail__actions-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+    stroke-width="1.5" width="30" height="30" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+  </svg>
+</ng-template>

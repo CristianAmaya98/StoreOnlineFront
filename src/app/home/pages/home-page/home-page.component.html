@@ -1,0 +1,14 @@
+<div class="categories">
+  <app-header-section [titleHeader]="'Categorias.'"></app-header-section>
+  <app-categories [categories]="categories" (onCategorySelect)="onCategorySelect($event)"></app-categories>
+</div>
+
+<div class="productos">
+  <app-header-section [titleHeader]="titleProduct"></app-header-section>
+  <app-animation *ngIf="showAnimation; else productsTemplate" [message]="'Cargando'"></app-animation>
+
+</div>
+
+<ng-template #productsTemplate>
+  <app-products [products]="products"></app-products>
+</ng-template>

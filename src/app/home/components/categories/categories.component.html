@@ -1,0 +1,6 @@
+<ul class="categories__grid">
+  <li *ngFor="let category of categories; let i = index"
+    [ngClass]="{'categories__grid-item': true, 'categories__grid-item--active': verifySelectCategory(i)}" (click)="onCategory(i, category)">
+    {{category |
+    titlecase}}</li>
+</ul>
