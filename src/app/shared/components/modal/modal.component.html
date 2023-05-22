@@ -7,16 +7,19 @@
     <ng-container *ngTemplateOutlet="headerModal"></ng-container>
 
     <div class="modal__body">
-      <ul class="modal__list">
-        <li class="modal__item">
+
+      <span *ngIf="modalData?.body?.products?.length === 0"
+        class="modal__item modal__item--default">{{modalData?.body?.defautl}}</span>
+      <ul *ngIf="modalData?.body?.products?.length > 0" class="modal__list">
+        <li *ngFor="let product of modalData?.body?.products" class="modal__item">
           <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
-              alt="producto img">
+            <img class="modal__img" [src]="product.image" alt="producto img">
           </div>
 
           <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
+            <p class="modal__item-title">{{product.cantidad}} x {{product.title}}</p>
+            <span class="modal__item--text">Cantidad: {{product.cantidad}}</span>
+            <span class="modal__item--text">Precio: {{product.price | number}}</span>
           </div>
 
           <div class="modal__item-price">
@@ -29,172 +32,22 @@
                 <path d="M6 6l12 12" />
               </svg>
             </span>
-            <span class="modal__text-price">$ 1.000.00</span>
+            <span class="modal__text-price">$ {{product.price | number}}</span>
           </div>
         </li>
-
-
-        <li class="modal__item">
-          <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="producto img">
-          </div>
-
-          <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
-          </div>
-
-          <div class="modal__item-price">
-            <span class="modal__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M18 6l-12 12" />
-                <path d="M6 6l12 12" />
-              </svg>
-            </span>
-            <span class="modal__text-price">$ 1.000.00</span>
-          </div>
-        </li>
-
-
-
-        <li class="modal__item">
-          <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="producto img">
-          </div>
-
-          <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
-          </div>
-
-          <div class="modal__item-price">
-            <span class="modal__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M18 6l-12 12" />
-                <path d="M6 6l12 12" />
-              </svg>
-            </span>
-            <span class="modal__text-price">$ 1.000.00</span>
-          </div>
-        </li>
-
-
-        <li class="modal__item">
-          <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="producto img">
-          </div>
-
-          <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
-          </div>
-
-          <div class="modal__item-price">
-            <span class="modal__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M18 6l-12 12" />
-                <path d="M6 6l12 12" />
-              </svg>
-            </span>
-            <span class="modal__text-price">$ 1.000.00</span>
-          </div>
-        </li>
-
-
-        <li class="modal__item">
-          <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="producto img">
-          </div>
-
-          <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
-          </div>
-
-          <div class="modal__item-price">
-            <span class="modal__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M18 6l-12 12" />
-                <path d="M6 6l12 12" />
-              </svg>
-            </span>
-            <span class="modal__text-price">$ 1.000.00</span>
-          </div>
-        </li>
-
-
-
-        <li class="modal__item">
-          <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="producto img">
-          </div>
-
-          <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
-          </div>
-
-          <div class="modal__item-price">
-            <span class="modal__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M18 6l-12 12" />
-                <path d="M6 6l12 12" />
-              </svg>
-            </span>
-            <span class="modal__text-price">$ 1.000.00</span>
-          </div>
-        </li>
-
-
-        <li class="modal__item">
-          <div class="modal__item-image">
-            <img class="modal__img" src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" alt="producto img">
-          </div>
-
-          <div class="modal__item-description">
-            <p class="modal__item-title">2 x White Gold Plated Princess</p>
-            <span class="modal__item-counter">Cantidad: 2</span>
-          </div>
-
-          <div class="modal__item-price">
-            <span class="modal__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M18 6l-12 12" />
-                <path d="M6 6l12 12" />
-              </svg>
-            </span>
-            <span class="modal__text-price">$ 1.000.00</span>
-          </div>
-        </li>
-
       </ul>
     </div>
+
+
+
     <ng-container *ngTemplateOutlet="footerModal"></ng-container>
   </div>
 </div>
 
 
 <ng-template #headerModal>
-  <div class="modal__header">
-    <h2 class="modal__title">Carrito</h2>
+  <div *ngIf="modalData?.header?.show" class="modal__header">
+    <h2 class="modal__title">{{modalData?.header?.title }}</h2>
 
     <span class="modal__icon-close" (click)="closeModal()">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-rounded-x" width="35"
@@ -210,13 +63,14 @@
 
 
 <ng-template #footerModal>
-  <div class="modal__footer">
+  <div *ngIf="modalData?.footer?.show" class="modal__footer">
 
     <div class="modal__footer-total">
-      <div class="modal__footer-text">Total:</div>
-      <div class="modal__footer-price">$ 1.000.00</div>
+      <div class="modal__footer-text">{{modalData?.footer?.data.title}}</div>
+      <div class="modal__footer-price">{{modalData?.footer?.data.content}}</div>
     </div>
 
-    <button class="modal__button">Comprar</button>
+    <button class="modal__button" [disabled]="modalData?.body?.products"
+      (click)="eventPayButton()">{{modalData?.footer?.buttonName}}</button>
   </div>
 </ng-template>

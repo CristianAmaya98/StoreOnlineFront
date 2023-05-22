@@ -48,4 +48,8 @@ export class ShoppingCartService {
   verificateProduct(id: number) {
     return this.shoppingProducts.some(productShopping => productShopping.id === id)
   }
+
+  getAllProductShopping() {
+    return JSON.parse(localStorage.getItem(this.keyStorage)!) ?? []
+  }
 }

@@ -42,4 +42,8 @@ export class FavoriteService {
     this.favoriteProducts = this.favoriteProducts.filter(favoriteProduct => favoriteProduct.id !== product.id)
     localStorage.setItem(this.keyStorage, JSON.stringify(this.favoriteProducts));
   }
+
+  getAllProductFavorite() {
+    return JSON.parse(localStorage.getItem(this.keyStorage)!) ?? []
+  }
 }
