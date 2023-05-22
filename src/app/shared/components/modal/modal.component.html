@@ -1,0 +1,56 @@
+<div class="bg-modal">
+  <div class="modal modal--animation" [ngClass]="{
+    'modal--animation-active': !animationClose,
+    'modal--animation-inactive': animationClose
+  }">
+
+    <ng-container *ngTemplateOutlet="headerModal"></ng-container>
+
+    <div class="modal__body">
+
+      <span *ngIf="modalData?.body?.products?.length === 0"
+        class="modal__item modal__item--default">{{modalData?.body?.defautl}}</span>
+
+
+      <ul *ngIf="modalData?.body?.products?.length > 0" class="modal__list">
+        <app-modal-card *ngFor="let product of modalData?.body?.products" [product]="product"
+          [cardType]="modalData?.card" (onEventCardIcon)="onEventListener($event)"></app-modal-card>
+      </ul>
+    </div>
+
+
+
+    <ng-container *ngTemplateOutlet="footerModal"></ng-container>
+  </div>
+</div>
+
+
+<ng-template #headerModal>
+  <div *ngIf="modalData?.header?.show" class="modal__header">
+    <h2 class="modal__title">{{modalData?.header?.title }}</h2>
+
+    <span class="modal__icon-close" (click)="closeModal()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square-rounded-x" width="35"
+        height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 10l4 4m0 -4l-4 4" />
+        <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+      </svg>
+    </span>
+  </div>
+</ng-template>
+
+
+<ng-template #footerModal>
+  <div *ngIf="modalData?.footer?.show" class="modal__footer">
+
+    <div class="modal__footer-total">
+      <div class="modal__footer-text">{{modalData?.footer?.data.title}}</div>
+      <div class="modal__footer-price">{{modalData?.footer?.data.content}}</div>
+    </div>
+
+    <button class="modal__button" [disabled]="modalData?.body?.products"
+      (click)="eventPayButton()">{{modalData?.footer?.buttonName}}</button>
+  </div>
+</ng-template>

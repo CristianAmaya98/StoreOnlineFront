@@ -32,11 +32,11 @@
 
 .header__navigation-count {
   position: absolute;
-  right: -8px;
+  right: -11px;
   top: -0.5rem;
   background-color: var(--bg-color-white);
   border-radius: 10rem;
-  width: 2rem;
+  width: 2.5rem;
   height: 2rem;
   text-align: center;
   color: var(--text-color-blue);

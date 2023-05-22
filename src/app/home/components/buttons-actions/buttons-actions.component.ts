@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { buttonActions } from 'src/app/storeonline.const';
+
 
 @Component({
   selector: 'app-buttons-actions',
@@ -8,27 +9,21 @@ import { buttonActions } from 'src/app/storeonline.const';
 })
 export class ButtonsActionsComponent implements OnInit {
 
-  buttons = [
-    {
-      title: "Comprar Ahora",
-      icon: 'comprar',
-      event: buttonActions.COMPRAR
-    },
-    {
-      title: "Agregar al Carrito",
-      icon: 'carrito',
-      event: buttonActions.AGREGAR
-    },
-    {
-      title: "Agregar a Favorito",
-      icon: 'favorito',
-      event: buttonActions.FAVORITO
-    }
-  ];
+
+  @Input() buttons: any[] = [];
+  @Output() onActionButton: EventEmitter<string> = new EventEmitter<string>();
+
+
+
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  eventButton(eventButton: any) {
+    this.onActionButton.emit(eventButton);
+  }
 }
