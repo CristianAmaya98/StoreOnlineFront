@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FakeStoreService } from '../../services/fake-store.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { FakeStoreService } from '../../services/fake-store.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
 
   titleProduct: string = 'Productos.';
   showAnimation: boolean = false;
@@ -23,9 +23,14 @@ export class HomePageComponent implements OnInit {
 
   constructor(private fakeStoreService: FakeStoreService) { }
 
+
   ngOnInit(): void {
     this.fakeStoreService.getAllCategories();
     this.fakeStoreService.getAllProducts();
+  }
+
+  ngOnDestroy(): void {
+    this.fakeStoreService.resetFakeStore();
   }
 
 

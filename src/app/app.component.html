@@ -1,6 +1,9 @@
-<app-header></app-header>
+<app-header (onEventButton)="eventHeaderIcon($event)"></app-header>
+
 <main class="main">
+  <app-modal *ngIf="modalShow" (onCloseModal)="closeModal()" [modalData]="modalData" (onEventCardIcon)="onEventCardIcon($event)"></app-modal>
   <div class="main__container">
     <router-outlet></router-outlet>
   </div>
 </main>
+

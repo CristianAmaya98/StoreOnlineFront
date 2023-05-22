@@ -1,6 +1,9 @@
-<ul class="product-detail__actions">
+<ul *ngIf="buttons.length > 0" class="product-detail__actions">
 
-  <li *ngFor="let button of buttons" class="product-detail__actions-item" [ngSwitch]="button.icon">
+  <li *ngFor="let button of buttons" class="product-detail__actions-item" [ngSwitch]="button.icon"
+    (click)="eventButton(button.event)"  [ngClass]="{
+      'product-detail__actions-item--active': button?.check
+    }">
     <p class="product-detail__actions-text">{{button.title}}</p>
 
     <div *ngSwitchCase="'comprar'">
