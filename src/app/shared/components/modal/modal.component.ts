@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { ShoppingCartService } from '../../../home/services/shopping-cart.service';
 
 @Component({
@@ -6,11 +6,12 @@ import { ShoppingCartService } from '../../../home/services/shopping-cart.servic
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
 
   animationClose: boolean = false;
   products: any[] = [];
   @Input() modalData: any = {
+    card: 'favorite',
     header: {
       title: '',
       show: true
@@ -29,13 +30,15 @@ export class ModalComponent implements OnInit {
     }
   };
   @Output() onCloseModal: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onEventCardIcon: EventEmitter<any> = new EventEmitter<any>();
 
 
 
 
-  ngOnInit(): void {
+
+  onEventListener(dataCard: any) {
+    this.onEventCardIcon.emit(dataCard)
   }
-
 
 
 
@@ -49,6 +52,5 @@ export class ModalComponent implements OnInit {
 
   eventPayButton() {
     console.log('Clickkk Payyyyyy');
-
   }
 }

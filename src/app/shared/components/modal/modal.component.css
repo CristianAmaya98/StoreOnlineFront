@@ -118,42 +118,6 @@
   font-weight: 500;
 }
 
-.modal__item-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal__img {
-  width: 6rem;
-}
-
-.modal__item-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.modal__item-title {
-  font-weight: 700;
-}
-
-.modal__item--text {
-  font-weight: 500;
-}
-
-.modal__item-price {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.modal__text-price {
-  font-weight: 900;
-}
-
 .modal__footer {
   background-color: rgb(212, 212, 212);
   display: flex;

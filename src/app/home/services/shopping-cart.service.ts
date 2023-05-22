@@ -40,6 +40,7 @@ export class ShoppingCartService {
     return this.shoppingProducts.map(productShopping => {
       if (productShopping.id === product.id) {
         productShopping.cantidad += 1;
+        productShopping.total = productShopping.price * productShopping.cantidad;
       }
       return productShopping;
     });
@@ -51,5 +52,14 @@ export class ShoppingCartService {
 
   getAllProductShopping() {
     return JSON.parse(localStorage.getItem(this.keyStorage)!) ?? []
+  }
+
+
+  deleteProductShopping(productDelete: any) {
+    this.shoppingProducts = this.shoppingProducts.filter(product => product.id !== productDelete.id);
+    localStorage.setItem(
+      this.keyStorage,
+      JSON.stringify(this.shoppingProducts)
+    );
   }
 }

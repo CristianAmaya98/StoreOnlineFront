@@ -26,10 +26,21 @@ export class AppComponent {
     this.modalShow = !this.modalShow;
   }
 
+  onEventCardIcon({ cardType, product}: any) {
+    if (cardType === 'shopping') {
+      this.ShoppingCartService.deleteProductShopping(product)
+      this.initShoppingData()
+    } else {
+      this.favoriteService.deleteProductFavorite(product);
+      this.initFavoriteData();
+    }
+  }
+
   initShoppingData() {
     const products = this.ShoppingCartService.getAllProductShopping()
 
     this.modalData = {
+      card: 'shopping',
       header: {
         title: 'Carrito',
         show: true
@@ -41,7 +52,7 @@ export class AppComponent {
       footer: {
         data: {
           title: 'Total:',
-          content: this.calculateTotal(products.map((product: any) => product.price)),
+          content: this.calculateTotal(products.map((product: any) => product.total)),
         },
         buttonName: 'Comprar',
         show: true
@@ -54,6 +65,7 @@ export class AppComponent {
     const products = this.favoriteService.getAllProductFavorite()
 
     this.modalData = {
+      card: 'favorite',
       header: {
         title: 'Favorito',
         show: true

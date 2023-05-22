@@ -16,6 +16,6 @@ export class ProductComponent {
 
   addProductShopping(product: any) {
     const { id, image, price, title } = product;
-    this.shoppingCartService.addProduct({ id, image, price, title, cantidad: 1 })
+    this.shoppingCartService.addProduct({ id, image, price, title, cantidad: 1, total: price })
   }
 }

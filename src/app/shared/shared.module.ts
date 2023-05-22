@@ -5,6 +5,7 @@ import { AnimationComponent } from './components/animation/animation.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from './components/modal/modal.component';
+import { ModalCardComponent } from './components/modal-card/modal-card.component';
 
 
 
@@ -13,7 +14,8 @@ import { ModalComponent } from './components/modal/modal.component';
     HeaderComponent,
     AnimationComponent,
     NotificationComponent,
-    ModalComponent
+    ModalComponent,
+    ModalCardComponent
   ],
   imports: [
     CommonModule,
