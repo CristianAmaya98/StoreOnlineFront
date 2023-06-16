@@ -30,7 +30,7 @@
 
 <ng-template #headerInfo>
   <h2 class="product-detail__info-title">{{product.title}}</h2>
-  <p class="product-detail__info-price">$ {{product.price}}</p>
+  <p class="product-detail__info-price">{{product.price | formatMoney:'en-US':'USD' }} USD</p>
   <div class="product-detail__info-ranking">Calificacion: {{product.rating.rate}}</div>
   <div class="product-detail__info-reviews">Reseñas: {{product.rating.count}}</div>
 </ng-template>

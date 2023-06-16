@@ -7,6 +7,12 @@
 
 @media (min-width: 768px) {
   .product-detail__actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-detail__actions {
     grid-template-columns: repeat(3, 1fr);
   }
 }

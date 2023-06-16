@@ -25,7 +25,7 @@ export class ShoppingCartService {
 
   addProduct(product: any) {
     if (this.verificateProduct(product.id)) {
-      this.shoppingProducts = this.updateAmountProduct(product);
+      this.deleteProductShopping(product)
     } else {
       this.shoppingProducts = [product, ...this.shoppingProducts];
     }

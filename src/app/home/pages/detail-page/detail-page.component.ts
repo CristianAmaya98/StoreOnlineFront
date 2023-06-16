@@ -81,12 +81,8 @@ export class DetailPageComponent implements OnInit, OnDestroy {
       })
     )
       .subscribe(() => {
-        this._buttons[1].check = this.shoppingCartService.verificateProduct(this.idProduct)
-        this._buttons[1].title = this._buttons[1].check ? "Quitar del Carrito" : "Agregar al Carrito"
-
-        this._buttons[2].check = this.favoriteService.verificateProductFavorite(this.idProduct)
-        this._buttons[2].title = this._buttons[2].check ? "Quitar de Favorito" : "Agregar a Favorito"
-
+        this.verificateStateShopping(this.idProduct)
+        this.verificateStateFavorite(this.idProduct)
 
         setTimeout(() => {
           this.product?.category && this.fakeStoreService.getOtherProductToCategory(this.product?.category, this.idProduct);
@@ -99,15 +95,33 @@ export class DetailPageComponent implements OnInit, OnDestroy {
 
 
   eventButtonAction(eventButtonAction: any) {
+    console.log("🚀 ~ file: detail-page.component.ts:98 ~ DetailPageComponent ~ eventButtonAction ~ eventButtonAction:", eventButtonAction)
+    const { id, image, price, title } = this.product;
 
     switch (eventButtonAction) {
       case buttonActions.FAVORITO:
-        const { id, image, price, title } = this.product;
         this.favoriteService.addProductFavorite({ id, image, price, title })
-        this._buttons[2].check = this.favoriteService.verificateProductFavorite(Number(id))
-        this._buttons[2].title = this._buttons[2].check ? "Quitar de Favorito" : "Agregar a Favorito"
+        this.verificateStateFavorite(Number(id))
+        break;
+
+      case buttonActions.AGREGAR:
+        this.shoppingCartService.addProduct({ id, image, price, title, cantidad: 1, total: price })
+        this.verificateStateShopping(Number(id))
+        break;
+
+      case buttonActions.COMPRAR:
         break;
     }
 
+  }
+
+  verificateStateFavorite(id: number) {
+    this._buttons[2].check = this.favoriteService.verificateProductFavorite(id)
+    this._buttons[2].title = this._buttons[2].check ? "Quitar de Favorito" : "Agregar a Favorito"
+  }
+
+  verificateStateShopping(id: number) {
+    this._buttons[1].check = this.shoppingCartService.verificateProduct(id)
+    this._buttons[1].title = this._buttons[1].check ? "Quitar del Carrito" : "Agregar al Carrito"
   }
 }

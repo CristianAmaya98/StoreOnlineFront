@@ -6,6 +6,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalCardComponent } from './components/modal-card/modal-card.component';
+import { FormatMoneyPipe } from './pipes/format-money.pipe';
 
 
 
@@ -15,7 +16,8 @@ import { ModalCardComponent } from './components/modal-card/modal-card.component
     AnimationComponent,
     NotificationComponent,
     ModalComponent,
-    ModalCardComponent
+    ModalCardComponent,
+    FormatMoneyPipe
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { ModalCardComponent } from './components/modal-card/modal-card.component
     HeaderComponent,
     AnimationComponent,
     NotificationComponent,
-    ModalComponent
+    ModalComponent,
+    FormatMoneyPipe
   ]
 })
 export class SharedModule { }
